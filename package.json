@@ -6,11 +6,11 @@
   "scripts": {
     "clean": "rm -rf build public/bundle.js",
     "start": "",
-    "build": "webpack --config webpack.dev.config.js"
+    "build": "webpack --config webpack.dev.config.js && lessc ./public/less/main.less ./public/css/main.css"
   },
   "betterScripts": {
     "development": {
-      "command": "node ./webpack.dev.server.js",
+      "command": "lessc ./public/less/main.less ./public/css/main.css && node ./webpack.dev.server.js",
       "env": {
         "NODE_ENV": "development"
       }
@@ -46,7 +46,8 @@
     "font-awesome-webpack":"^0.0.4",
     "less-loader":"^2.2.3",
     "less":"^2.7.2",
-    "url-loader":"^0.5.7"
+    "url-loader":"^0.5.7",
+    "react-bootstrap":"^0.30.7"
   },
   "repository": {
     "type": "git",

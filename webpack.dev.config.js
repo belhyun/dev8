@@ -4,9 +4,6 @@ require('dotenv').load();
 
 var webpack = require('webpack');
 
-var host = process.env.HOST || 'localhost';
-var port = 52273;
-
 module.exports = {
 
     devtool: '#cheap-module-eval-source-map',
@@ -28,7 +25,11 @@ module.exports = {
         hot: true,
         filename: 'bundle.js',
         publicPath: '/',
-        historyApiFallback: true,
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/hello$/, to: '/public/hello.html' }
+            ]
+        },
         contentBase: './public',
         proxy: {
             "**": "http://localhost:3000"
