@@ -1,11 +1,10 @@
 import _ from "underscore"
-export function projects(query, colorHex) {
+export function projects(query, page) {
     return {
         q : query,
-        color_hex : colorHex,
         sort : "appreciations",
         time : "today",
-        page : 0
+        page : _.isUndefined(page) ? 0 : page
     };
 };
 

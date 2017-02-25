@@ -7,7 +7,7 @@ var keys = {
 var behance = new Behance(keys);
 
 exports.images = function(req, res, next) {
-    behance.get('projects', projects(req.query.query), function(resp){
+    behance.get('projects', projects(req.query.query, req.query.page), function(resp){
         res.send(resp);
     });
 };
